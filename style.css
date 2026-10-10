@@ -1,0 +1,45 @@
+/* Свои стили поверх Bootstrap. Подход Mobile First:
+   сначала базовые стили для телефона, затем media (min-width) для широких экранов. */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f1f3f5;
+}
+
+/* Шапка и подвал */
+.site-header {
+    background-color: #0d47a1;
+}
+
+.site-footer {
+    background-color: #212529;
+    color: #ced4da;
+}
+
+/* Логотип: на телефоне поменьше */
+.site-logo {
+    max-height: 64px;
+    width: auto;
+}
+
+/* Иконка-картинка в списке ссылок */
+.link-icon {
+    height: 32px;
+    width: auto;
+}
+
+/* Якорные переходы не прижимаются к верху окна */
+main section,
+main h3[id] {
+    scroll-margin-top: 1rem;
+}
+
+/* Планшет и выше (≥768px) */
+@media (min-width: 768px) {
+    .site-logo {
+        max-height: 96px;
+    }
+}
