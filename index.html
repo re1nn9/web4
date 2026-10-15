@@ -16,15 +16,11 @@
 
 <header class="site-header">
     <div class="container py-3">
-        <div class="row align-items-center g-3">
-            <div class="col-12 col-sm-auto">
-                <a href="https://kubsu.ru/" title="КубГУ">
-                    <img class="site-logo img-fluid" src="kubanskiy.jpg" alt="КубГУ">
-                </a>
-            </div>
-            <div class="col-12 col-sm">
-                <h1 class="h2 text-white mb-0">Zika-учебный сайт</h1>
-            </div>
+        <div class="d-flex align-items-center gap-3">
+            <a href="https://kubsu.ru/" title="КубГУ">
+                <img class="site-logo" src="kubanskiy.jpg" alt="КубГУ">
+            </a>
+            <h1 class="h4 text-white mb-0">Zika-учебный сайт</h1>
         </div>
     </div>
 
@@ -59,29 +55,26 @@
                         <li class="list-group-item"><a href="http://kubsu.ru/">Главная kubsu.ru (HTTP)</a></li>
                         <li class="list-group-item"><a href="https://kubsu.ru/">Главная kubsu.ru (HTTPS)</a></li>
                         <li class="list-group-item">
-                            <a href="https://kubsu.ru/"><img class="link-icon" src="icon.png" alt="КубГУ"></a>
+                            <a href="https://kubsu.ru/"><img src="icon.png" alt="КубГУ" width="100"></a>
                         </li>
                         <li class="list-group-item"><a href="/page.html">Сокращенная внутренняя</a></li>
                         <li class="list-group-item"><a href="/">Сокращенная главная</a></li>
                         <li class="list-group-item"><a href="#section1">Ссылка на фрагмент</a></li>
                         <li class="list-group-item"><a href="page.html?name=Vlad&amp;surname=Zika&amp;age=18">Три параметра</a></li>
                         <li class="list-group-item"><a href="page.html?id=123">Параметр id</a></li>
-                        <li class="list-group-item"><a href="page.html">Текущий каталог</a></li>
+                        <li class="list-group-item"><a href="./page.html">Текущий каталог</a></li>
                         <li class="list-group-item"><a href="about/about.html">Каталог about</a></li>
                         <li class="list-group-item"><a href="../page.html">Уровнем выше</a></li>
                         <li class="list-group-item"><a href="../../page.html">Двумя уровнями выше</a></li>
                         <li class="list-group-item">Текст с <a href="https://kubsu.ru/">контекстной ссылкой</a> в предложении.</li>
                         <li class="list-group-item"><a href="https://ru.wikipedia.org/wiki/HTML#История">Фрагмент стороннего сайта</a></li>
                         <li class="list-group-item">
-                            <div class="overflow-auto">
-                                <img src="image.jpg" usemap="#links-map"
-                                     alt="Картинка со ссылками: прямоугольник ведёт на КубГУ, круг на Google">
-                                <map name="links-map">
-                                    <!-- ВАЖНО: координаты скопируйте из index.html лабораторной 3 -->
-                                    <area shape="rect" coords="0,0,100,100" href="https://kubsu.ru/" alt="КубГУ">
-                                    <area shape="circle" coords="150,50,50" href="https://google.com/" alt="Google">
-                                </map>
-                            </div>
+                            <img src="image.jpg" width="200" height="100" usemap="#navmap"
+                                 alt="Картинка со ссылками: прямоугольник ведёт на КубГУ, круг на Google">
+                            <map name="navmap">
+                                <area shape="rect" coords="0,0,100,100" href="https://kubsu.ru/" alt="КубГУ">
+                                <area shape="circle" coords="150,50,40" href="https://google.com/" alt="Google">
+                            </map>
                         </li>
                         <li class="list-group-item"><a href="">Пустой href</a></li>
                         <li class="list-group-item"><a>Без href</a></li>
@@ -148,8 +141,7 @@
                             <tr>
                                 <th scope="row">3</th>
                                 <td>Формы</td>
-                                <td>Поля ввода и отправка сообщения</td>
-                                <td><span class="badge text-bg-warning">В работе</span></td>
+                                <td colspan="2">Поля ввода и отправка сообщения</td>
                             </tr>
                             <tr>
                                 <th scope="row">4</th>
@@ -169,16 +161,20 @@
             <section id="form" class="card shadow-sm">
                 <div class="card-body p-3 p-md-4">
                     <h2 class="h3 mb-3">Форма</h2>
-                    <form class="row g-3" action="#" method="post">
+                    <form class="row g-3" action="#form" method="get">
 
                         <div class="col-12 col-md-6">
                             <label class="form-label" for="fio">ФИО</label>
-                            <input class="form-control" type="text" id="fio" name="fio" autocomplete="name" required>
+                            <input class="form-control" type="text" id="fio" name="fullname" placeholder="Иванов Иван Иванович"
+                                   pattern="[A-Za-zА-Яа-яЁё\s\-]+" title="Только буквы, пробелы и дефис"
+                                   autocomplete="name" required>
                         </div>
 
                         <div class="col-12 col-md-6">
                             <label class="form-label" for="phone">Телефон</label>
-                            <input class="form-control" type="tel" id="phone" name="phone" autocomplete="tel" required>
+                            <input class="form-control" type="tel" id="phone" name="phone" placeholder="+79001234567"
+                                   pattern="\+?[0-9]{10,15}" title="От 10 до 15 цифр, можно с плюсом в начале"
+                                   autocomplete="tel" required>
                         </div>
 
                         <div class="col-12 col-md-6">
@@ -188,7 +184,8 @@
 
                         <div class="col-12 col-md-6">
                             <label class="form-label" for="birthday">Дата рождения</label>
-                            <input class="form-control" type="date" id="birthday" name="birthday" autocomplete="bday" required>
+                            <input class="form-control" type="date" id="birthday" name="birthdate" min="1900-01-01"
+                                   autocomplete="bday" required>
                         </div>
 
                         <fieldset class="col-12 col-md-6">
@@ -205,7 +202,7 @@
 
                         <div class="col-12 col-md-6">
                             <label class="form-label" for="languages">Любимый язык программирования (можно выбрать несколько)</label>
-                            <select class="form-select" id="languages" name="languages" multiple size="6">
+                            <select class="form-select" id="languages" name="languages[]" multiple size="6" required>
                                 <option value="Pascal">Pascal</option>
                                 <option value="C">C</option>
                                 <option value="C++">C++</option>
@@ -222,7 +219,7 @@
 
                         <div class="col-12">
                             <label class="form-label" for="bio">Биография</label>
-                            <textarea class="form-control" id="bio" name="bio" rows="4"></textarea>
+                            <textarea class="form-control" id="bio" name="bio" rows="5"></textarea>
                         </div>
 
                         <div class="col-12">
